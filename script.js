@@ -6,7 +6,7 @@
         if(duration.length > 4){
             return duration.split("")[2] + duration.split("")[3];
         } else{
-            return duration.split("")[2];
+            return duration.includes("M")? duration.split("")[2] * 60 : duration.split("")[2]
         }
     }
 
@@ -26,7 +26,7 @@
 
     function clickNext(time , startTime){
         const finishTime = new Date().getTime();               
-        const timeout = time*1000 - (finishTime-startTime);
+        const timeout = time*1000 - (finishTime-startTime) - 30;
         start = setTimeout(clickButton ,timeout)
     }
 

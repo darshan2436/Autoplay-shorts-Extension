@@ -1,5 +1,5 @@
 {
-    "name": "First Extension",
+    "name": "AutoPlay yt shorts",
     "version": "0.0.1",
     "action":{
         "default_popup":"index.html",
