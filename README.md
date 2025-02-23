@@ -8,4 +8,4 @@
 ### 2.go to chorme extensions and check the developer mode on 
 ### 3.click the load unpacked button and select folder where you clone this repo
 
-### the just go to the shorts section and enjoy autoplay
+### then just go to the shorts section and enjoy autoplay
