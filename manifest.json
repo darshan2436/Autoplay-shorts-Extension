@@ -1,0 +1,23 @@
+{
+    "name": "First Extension",
+    "version": "0.0.1",
+    "action":{
+        "default_popup":"index.html",
+        "default_icon":"logo.png"
+    },
+    "icons": {
+        "128": "logo.png"
+    },
+    "background":{
+        "service_worker":"background.js"
+    },
+    "permissions":["activeTab" , "tabs"],
+    "host_permissions": ["https://*.youtube.com/*"],
+    "content_scripts":[
+        {
+            "matches":["https://*.youtube.com/*"],
+            "js":["script.js"]
+        }
+    ],
+    "manifest_version":3
+}
