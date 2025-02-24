@@ -2,6 +2,7 @@
     const API_KEY = 'AIzaSyDOmQJuQmWR4TxFQz-T7MJlmBpZLJ6pS2w'
     let start;
 
+    //gives the seconds of the video
     function getSeconds(duration){
         if(duration.length > 4){
             return duration.split("")[2] + duration.split("")[3];
@@ -11,6 +12,10 @@
     }
 
     //function to disable loop so it does not replay after the short is finished and next is being loading
+    function disableLoop(){
+        const video = document.body.getElementsByClassName("video-stream html5-main-video")[1];
+        video.removeAttribute("loop");
+    }
 
      // Simulate click function
     function clickButton() {
@@ -24,12 +29,15 @@
         buttons[index].click();
     }
 
+    //clicks the nextvideo button after time is up
     function clickNext(time , startTime){
+        setTimeout(disableLoop , 3000)
         const finishTime = new Date().getTime();               
         const timeout = time*1000 - (finishTime-startTime) - 30;
         start = setTimeout(clickButton ,timeout)
     }
 
+    //gets the information of video
     async function getvideos(id , startTime){
         clearTimeout(start);
         const url = `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${id}&part=contentDetails`;
@@ -50,7 +58,7 @@
         }
     }
 
-    // chrome.tabs.query({currentWindow:true} , logTabse)
+    //gets a message from the background.js
     chrome.runtime.onMessage.addListener((obj , sender, response)=>{
         if(obj.type="New"){
             getvideos(obj.videoId , obj.startTime);
