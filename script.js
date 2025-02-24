@@ -1,5 +1,5 @@
 (()=>{
-    const API_KEY = 'AIzaSyDOmQJuQmWR4TxFQz-T7MJlmBpZLJ6pS2w'
+    const API_KEY = YT_API_KEY
     let start;
 
     //gives the seconds of the video
