@@ -1,10 +1,15 @@
 (()=>{
-    const API_KEY = YT_API_KEY
+    const API_KEY = 'AIzaSyDOmQJuQmWR4TxFQz-T7MJlmBpZLJ6pS2w'
     let start;
 
     //gives the seconds of the video
     function getSeconds(duration){
-        if(duration.length > 4){
+        if(duration.length > 6){
+            return  ((duration.split("")[2] * 60) + parseInt(duration.split("")[4] + duration.split("")[5]))
+        } else if(duration.length >5){
+            return  ((duration.split("")[2] * 60) + parseInt(duration.split("")[4]))
+        }
+        else if(duration.length > 4){
             return duration.split("")[2] + duration.split("")[3];
         } else{
             return duration.includes("M")? duration.split("")[2] * 60 : duration.split("")[2]
